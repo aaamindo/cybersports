@@ -462,6 +462,7 @@ static void SaveAllMatches(MatchList* list)
 
 		matchesFile << m.id << endl;
 		matchesFile << m.tournamentId << endl;
+		matchesFile << m.round << endl;
 		matchesFile << m.player1Id << endl;
 		matchesFile << m.player2Id << endl;
 		matchesFile << m.winnerId << endl;
@@ -510,13 +511,14 @@ static void LoadAllMatches(MatchList* list)
 		{
 		case 0: m.id = atoi(line); break;
 		case 1: m.tournamentId = atoi(line); break;
-		case 2: m.player1Id = atoi(line); break;
-		case 3: m.player2Id = atoi(line); break;
-		case 4: m.winnerId = atoi(line); break;
-		case 5: strcpy_s(m.date, line);    break;
-		case 6: strcpy_s(m.status, line);    break;
-		case 7: m.score1 = atoi(line); break;
-		case 8: m.score2 = atoi(line); break;
+		case 2: m.round = atoi(line); break;
+		case 3: m.player1Id = atoi(line); break;
+		case 4: m.player2Id = atoi(line); break;
+		case 5: m.winnerId = atoi(line); break;
+		case 6: strcpy_s(m.date, line);   break;
+		case 7: strcpy_s(m.status, line); break;
+		case 8: m.score1 = atoi(line);    break;
+		case 9: m.score2 = atoi(line);    break;
 		}
 
 		fieldIndex++;
@@ -595,4 +597,65 @@ static void CreateDefaultOrganizer(OrganizerList* list)
 	o.eventsCount = 0;
 	AddOrganizer(list, o);
 	SaveAllOrganizers(list);
+}
+
+// =====================================================
+// ЗАЯВКИ — текстовый файл applications.txt
+// =====================================================
+
+static void SaveAllApplications(TourApplicationList* list)
+{
+	ofstream file;
+	file.open("data\\applications.txt", ios::out);
+	if (!file.is_open()) return;
+
+	TourApplicationNode* cur = list->head;
+	while (cur != NULL) {
+		TourApplication a = cur->data;
+		file << a.id << endl;
+		file << a.playerId << endl;
+		file << a.tournamentId << endl;
+		file << a.submitDate << endl;
+		file << a.status << endl;
+		file << a.rejectReason << endl;
+		file << "---" << endl;
+		cur = cur->next;
+	}
+	file.close();
+}
+
+static void LoadAllApplications(TourApplicationList* list)
+{
+	ClearApplicationList(list);
+
+	ifstream file;
+	file.open("data\\applications.txt", ios::in);
+	if (!file.is_open()) return;
+
+	TourApplication a = {};
+	int fieldIndex = 0;
+	char line[256];
+
+	while (file.eof() == false) {
+		file.getline(line, sizeof(line));
+		if (strlen(line) == 0) continue;
+
+		if (strcmp(line, "---") == 0) {
+			AddApplication(list, a);
+			a = {};
+			fieldIndex = 0;
+			continue;
+		}
+
+		switch (fieldIndex) {
+		case 0: a.id = atoi(line); break;
+		case 1: a.playerId = atoi(line); break;
+		case 2: a.tournamentId = atoi(line); break;
+		case 3: strcpy_s(a.submitDate, line); break;
+		case 4: strcpy_s(a.status, line); break;
+		case 5: strcpy_s(a.rejectReason, line); break;
+		}
+		fieldIndex++;
+	}
+	file.close();
 }

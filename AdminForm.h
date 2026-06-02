@@ -47,6 +47,7 @@ namespace kurs {
 
 	private: AccountList* accList;
 	private: DisciplineList* discList;
+	private: TournamentList* tournList;
 	private: System::Windows::Forms::TabControl^ dgvDisciplines;
 
 
@@ -94,6 +95,18 @@ namespace kurs {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column7;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	private: System::Windows::Forms::TabPage^ tabPage3;
+	private: System::Windows::Forms::DataGridView^ dgvTournaments;
+
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column8;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column9;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column10;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column11;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column12;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column13;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column14;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column15;
+	private: System::Windows::Forms::Button^ btnApproveTournament;
+	private: System::Windows::Forms::Button^ btnRejectTournament;
 
 
 
@@ -146,12 +159,25 @@ namespace kurs {
 			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->dgvTournaments = (gcnew System::Windows::Forms::DataGridView());
+			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column9 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column11 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column12 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column13 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column14 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column15 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->btnApproveTournament = (gcnew System::Windows::Forms::Button());
+			this->btnRejectTournament = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->dgvDisciplines->SuspendLayout();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvUsers))->BeginInit();
 			this->tabPage2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->tabPage3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTournaments))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -508,6 +534,9 @@ namespace kurs {
 			// tabPage3
 			// 
 			this->tabPage3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tabPage3.BackgroundImage")));
+			this->tabPage3->Controls->Add(this->btnRejectTournament);
+			this->tabPage3->Controls->Add(this->btnApproveTournament);
+			this->tabPage3->Controls->Add(this->dgvTournaments);
 			this->tabPage3->Location = System::Drawing::Point(4, 25);
 			this->tabPage3->Name = L"tabPage3";
 			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
@@ -515,6 +544,108 @@ namespace kurs {
 			this->tabPage3->TabIndex = 2;
 			this->tabPage3->Text = L"Турниры";
 			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
+			// dgvTournaments
+			// 
+			this->dgvTournaments->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(46)));
+			this->dgvTournaments->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvTournaments->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+				this->Column8,
+					this->Column9, this->Column10, this->Column11, this->Column12, this->Column13, this->Column14, this->Column15
+			});
+			this->dgvTournaments->Location = System::Drawing::Point(8, 6);
+			this->dgvTournaments->Name = L"dgvTournaments";
+			this->dgvTournaments->RowHeadersWidth = 51;
+			this->dgvTournaments->RowTemplate->Height = 24;
+			this->dgvTournaments->Size = System::Drawing::Size(1000, 540);
+			this->dgvTournaments->TabIndex = 0;
+			// 
+			// Column8
+			// 
+			this->Column8->HeaderText = L"ID";
+			this->Column8->MinimumWidth = 6;
+			this->Column8->Name = L"Column8";
+			this->Column8->Width = 125;
+			// 
+			// Column9
+			// 
+			this->Column9->HeaderText = L"Название";
+			this->Column9->MinimumWidth = 6;
+			this->Column9->Name = L"Column9";
+			this->Column9->Width = 125;
+			// 
+			// Column10
+			// 
+			this->Column10->HeaderText = L"Дисциплина";
+			this->Column10->MinimumWidth = 6;
+			this->Column10->Name = L"Column10";
+			this->Column10->Width = 125;
+			// 
+			// Column11
+			// 
+			this->Column11->HeaderText = L"Формат";
+			this->Column11->MinimumWidth = 6;
+			this->Column11->Name = L"Column11";
+			this->Column11->Width = 125;
+			// 
+			// Column12
+			// 
+			this->Column12->HeaderText = L"Призовой фонд";
+			this->Column12->MinimumWidth = 6;
+			this->Column12->Name = L"Column12";
+			this->Column12->Width = 125;
+			// 
+			// Column13
+			// 
+			this->Column13->HeaderText = L"Дата";
+			this->Column13->MinimumWidth = 6;
+			this->Column13->Name = L"Column13";
+			this->Column13->Width = 125;
+			// 
+			// Column14
+			// 
+			this->Column14->HeaderText = L"Статус";
+			this->Column14->MinimumWidth = 6;
+			this->Column14->Name = L"Column14";
+			this->Column14->Width = 125;
+			// 
+			// Column15
+			// 
+			this->Column15->HeaderText = L"Мест";
+			this->Column15->MinimumWidth = 6;
+			this->Column15->Name = L"Column15";
+			this->Column15->Width = 125;
+			// 
+			// btnApproveTournament
+			// 
+			this->btnApproveTournament->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->btnApproveTournament->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnApproveTournament->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.8F, System::Drawing::FontStyle::Bold));
+			this->btnApproveTournament->ForeColor = System::Drawing::Color::White;
+			this->btnApproveTournament->Location = System::Drawing::Point(1050, 195);
+			this->btnApproveTournament->Name = L"btnApproveTournament";
+			this->btnApproveTournament->Size = System::Drawing::Size(226, 49);
+			this->btnApproveTournament->TabIndex = 1;
+			this->btnApproveTournament->Text = L"ПОДТВЕРДИТЬ";
+			this->btnApproveTournament->UseVisualStyleBackColor = false;
+			this->btnApproveTournament->Click += gcnew System::EventHandler(this, &AdminForm::btnApproveTournament_Click);
+			// 
+			// btnRejectTournament
+			// 
+			this->btnRejectTournament->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->btnRejectTournament->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnRejectTournament->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.8F, System::Drawing::FontStyle::Bold));
+			this->btnRejectTournament->ForeColor = System::Drawing::Color::White;
+			this->btnRejectTournament->Location = System::Drawing::Point(1050, 250);
+			this->btnRejectTournament->Name = L"btnRejectTournament";
+			this->btnRejectTournament->Size = System::Drawing::Size(226, 49);
+			this->btnRejectTournament->TabIndex = 2;
+			this->btnRejectTournament->Text = L"ОТКЛОНИТЬ";
+			this->btnRejectTournament->UseVisualStyleBackColor = false;
+			this->btnRejectTournament->Click += gcnew System::EventHandler(this, &AdminForm::btnRejectTournament_Click);
 			// 
 			// AdminForm
 			// 
@@ -537,11 +668,13 @@ namespace kurs {
 			this->tabPage2->ResumeLayout(false);
 			this->tabPage2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->tabPage3->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTournaments))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	void RefreshTable()
+		void RefreshTable()
 		{
 			dgvUsers->Rows->Clear();
 
@@ -560,7 +693,7 @@ namespace kurs {
 			}
 		}
 
-	void RefreshDisciplineTable()
+		void RefreshDisciplineTable()
 		{
 			dataGridView1->Rows->Clear();
 
@@ -571,6 +704,33 @@ namespace kurs {
 				String^ name = msclr::interop::marshal_as<String^>(std::string(current->data.name));
 				dataGridView1->Rows->Add(id, name);
 				current = current->next;
+			}
+		}
+
+		void RefreshTournamentTable()
+		{
+			dgvTournaments->Rows->Clear();
+
+			TournamentNode* cur = tournList->head;
+			while (cur != NULL)
+			{
+				if (strcmp(cur->data.status, "На проверке") == 0)
+				{
+					int freePlaces = cur->data.maxPlayers - cur->data.currentPlayers;
+					String^ places = freePlaces.ToString() + " / " + cur->data.maxPlayers.ToString();
+
+					dgvTournaments->Rows->Add(
+						cur->data.id,
+						gcnew String(cur->data.title),
+						gcnew String(cur->data.discipline),
+						gcnew String(cur->data.format),
+						cur->data.prizePool,
+						gcnew String(cur->data.date),
+						gcnew String(cur->data.status),
+						places
+					);
+				}
+				cur = cur->next;
 			}
 		}
 
@@ -602,6 +762,17 @@ namespace kurs {
 		dataGridView1->SelectionMode = DataGridViewSelectionMode::FullRowSelect;
 		dataGridView1->MultiSelect = false;
 		RefreshDisciplineTable();
+
+		tournList = new TournamentList;
+		InitTournamentList(tournList);
+		LoadAllTournaments(tournList);
+
+		dgvTournaments->AllowUserToAddRows = false;
+		dgvTournaments->ReadOnly = true;
+		dgvTournaments->SelectionMode = DataGridViewSelectionMode::FullRowSelect;
+		dgvTournaments->MultiSelect = false;
+
+		RefreshTournamentTable();
 	}
 
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -864,6 +1035,62 @@ namespace kurs {
 			MessageBox::Show("Дисциплина удалена!", "Успех",
 				MessageBoxButtons::OK, MessageBoxIcon::Information);
 		}
+	}
+
+	private: System::Void btnApproveTournament_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (dgvTournaments->SelectedRows->Count == 0)
+		{
+			MessageBox::Show("Выберите турнир!", "Ошибка",
+				MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			return;
+		}
+
+		int id = int::Parse(dgvTournaments->SelectedRows[0]->Cells[0]->Value->ToString());
+
+		TournamentNode* cur = tournList->head;
+		while (cur != NULL)
+		{
+			if (cur->data.id == id)
+			{
+				strcpy_s(cur->data.status, "Активен");
+				break;
+			}
+			cur = cur->next;
+		}
+
+		SaveAllTournaments(tournList);
+		RefreshTournamentTable();
+
+		MessageBox::Show("Турнир подтверждён!", "Успех",
+			MessageBoxButtons::OK, MessageBoxIcon::Information);
+	}
+
+	private: System::Void btnRejectTournament_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (dgvTournaments->SelectedRows->Count == 0)
+		{
+			MessageBox::Show("Выберите турнир!", "Ошибка",
+				MessageBoxButtons::OK, MessageBoxIcon::Warning);
+			return;
+		}
+
+		int id = int::Parse(dgvTournaments->SelectedRows[0]->Cells[0]->Value->ToString());
+
+		TournamentNode* cur = tournList->head;
+		while (cur != NULL)
+		{
+			if (cur->data.id == id)
+			{
+				strcpy_s(cur->data.status, "Черновик");
+				break;
+			}
+			cur = cur->next;
+		}
+
+		SaveAllTournaments(tournList);
+		RefreshTournamentTable();
+
+		MessageBox::Show("Турнир отклонён, возвращён организатору.", "Готово",
+			MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 	};
 }

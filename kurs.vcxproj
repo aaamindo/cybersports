@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AdminForm.cpp" />
+    <ClCompile Include="BracketForm.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="LoginForm.cpp" />
     <ClCompile Include="OrganizerForm.cpp" />
@@ -127,6 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdminForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="BracketForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FileManager.h" />
@@ -148,6 +152,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BracketForm.resx">
+      <DependentUpon>BracketForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.h</DependentUpon>

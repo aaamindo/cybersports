@@ -4,6 +4,7 @@
 #include "List.h"
 #include "FileManager.h"
 #include "OrganizerForm.h"
+#include "BracketForm.h"
 namespace kurs {
 
 	using namespace System;
@@ -39,32 +40,88 @@ namespace kurs {
 			}
 		}
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-	private: System::Windows::Forms::TabControl^ tabControl1;
-	private: System::Windows::Forms::TabPage^ tabPage1;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
-	private: System::Windows::Forms::TabPage^ tabPage2;
-	private: System::Windows::Forms::TabPage^ tabPage3;
-	private: System::Windows::Forms::TabPage^ tabPage4;
-	private: System::Windows::Forms::ComboBox^ cmbFilter;
 
-	private: System::Windows::Forms::DataGridView^ dgvTournaments;
-	private: System::Windows::Forms::PictureBox^ pictureBox3;
-	private: System::Windows::Forms::PictureBox^ pictureBox4;
-	private: System::Windows::Forms::PictureBox^ pictureBox5;
-	private: System::Windows::Forms::Button^ btnSearch;
-	private: System::Windows::Forms::Button^ btnEdit;
-	private: System::Windows::Forms::Button^ btnCreate;
 
-	private: System::Windows::Forms::Button^ btnSendToReview;
-	private: System::Windows::Forms::Button^ btnDelete;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::TextBox^ txtSearch;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private: TournamentList* tournList;
 	private: int currentOrgId;
 	private: OrganizerList* orgList;
 	private: AccountList* accList;
 	private: int currentAccountId;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::ToolTip^ toolTip1;
+	private: System::Windows::Forms::TabPage^ tabPage4;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ lblEventsCount;
+	private: System::Windows::Forms::Label^ lblRating;
+	private: System::Windows::Forms::Button^ btnSave;
+	private: System::Windows::Forms::TextBox^ txtContacts;
+	private: System::Windows::Forms::TextBox^ txtOrgName;
+	private: System::Windows::Forms::Label^ lblLogin;
+	private: System::Windows::Forms::Label^ lblID;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+	private: System::Windows::Forms::TabPage^ tabPage3;
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
+	private: System::Windows::Forms::TabPage^ tabPage2;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::TabPage^ tabPage1;
+	private: System::Windows::Forms::Button^ btnBracket;
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::TextBox^ txtSearch;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Button^ btnSendToReview;
+	private: System::Windows::Forms::Button^ btnDelete;
+	private: System::Windows::Forms::Button^ btnEdit;
+	private: System::Windows::Forms::Button^ btnCreate;
+	private: System::Windows::Forms::Button^ btnSearch;
+	private: System::Windows::Forms::ComboBox^ cmbFilter;
+	private: System::Windows::Forms::DataGridView^ dgvTournaments;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column3;
@@ -72,24 +129,11 @@ namespace kurs {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Column7;
-	private: System::Windows::Forms::TabPage^ tabPage5;
-	private: System::Windows::Forms::PictureBox^ pictureBox6;
-	private: System::Windows::Forms::Button^ btnSave;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::TabControl^ tabControl1;
+private: System::Windows::Forms::Button^ button1;
 
 
-	private: System::Windows::Forms::TextBox^ txtContacts;
-	private: System::Windows::Forms::TextBox^ txtOrgName;
-	private: System::Windows::Forms::Label^ lblLogin;
-	private: System::Windows::Forms::Label^ lblID;
-	private: System::Windows::Forms::Label^ lblEventsCount;
-	private: System::Windows::Forms::Label^ lblRating;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::Label^ label7;
-	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::Label^ label5;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::ToolTip^ toolTip1;
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -119,8 +163,29 @@ namespace kurs {
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(OrganizerForm::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
+			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->lblID = (gcnew System::Windows::Forms::Label());
+			this->lblLogin = (gcnew System::Windows::Forms::Label());
+			this->txtOrgName = (gcnew System::Windows::Forms::TextBox());
+			this->txtContacts = (gcnew System::Windows::Forms::TextBox());
+			this->lblRating = (gcnew System::Windows::Forms::Label());
+			this->lblEventsCount = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
+			this->btnSave = (gcnew System::Windows::Forms::Button());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->btnBracket = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->txtSearch = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -139,41 +204,18 @@ namespace kurs {
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->tabPage5 = (gcnew System::Windows::Forms::TabPage());
-			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
-			this->tabPage2 = (gcnew System::Windows::Forms::TabPage());
-			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->tabPage3 = (gcnew System::Windows::Forms::TabPage());
-			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
-			this->tabPage4 = (gcnew System::Windows::Forms::TabPage());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->lblEventsCount = (gcnew System::Windows::Forms::Label());
-			this->lblRating = (gcnew System::Windows::Forms::Label());
-			this->btnSave = (gcnew System::Windows::Forms::Button());
-			this->txtContacts = (gcnew System::Windows::Forms::TextBox());
-			this->txtOrgName = (gcnew System::Windows::Forms::TextBox());
-			this->lblLogin = (gcnew System::Windows::Forms::Label());
-			this->lblID = (gcnew System::Windows::Forms::Label());
-			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
-			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
+			this->tabControl1 = (gcnew System::Windows::Forms::TabControl());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			this->tabControl1->SuspendLayout();
+			this->tabPage4->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			this->tabPage3->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			this->tabPage2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->tabPage1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTournaments))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
-			this->tabPage5->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
-			this->tabPage2->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
-			this->tabPage3->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
-			this->tabPage4->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			this->tabControl1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -187,22 +229,294 @@ namespace kurs {
 			this->pictureBox1->TabIndex = 0;
 			this->pictureBox1->TabStop = false;
 			// 
-			// tabControl1
+			// lblID
 			// 
-			this->tabControl1->Controls->Add(this->tabPage1);
-			this->tabControl1->Controls->Add(this->tabPage5);
-			this->tabControl1->Controls->Add(this->tabPage2);
-			this->tabControl1->Controls->Add(this->tabPage3);
-			this->tabControl1->Controls->Add(this->tabPage4);
-			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tabControl1->Location = System::Drawing::Point(0, 0);
-			this->tabControl1->Name = L"tabControl1";
-			this->tabControl1->SelectedIndex = 0;
-			this->tabControl1->Size = System::Drawing::Size(1309, 585);
-			this->tabControl1->TabIndex = 1;
+			this->lblID->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->lblID->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->lblID->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->lblID->ForeColor = System::Drawing::Color::White;
+			this->lblID->Location = System::Drawing::Point(874, 72);
+			this->lblID->Name = L"lblID";
+			this->lblID->Size = System::Drawing::Size(287, 40);
+			this->lblID->TabIndex = 1;
+			this->lblID->Text = L"+айди";
+			this->toolTip1->SetToolTip(this->lblID, L"Нельзя изменить!");
+			// 
+			// lblLogin
+			// 
+			this->lblLogin->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->lblLogin->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->lblLogin->Cursor = System::Windows::Forms::Cursors::Arrow;
+			this->lblLogin->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->lblLogin->ForeColor = System::Drawing::Color::White;
+			this->lblLogin->Location = System::Drawing::Point(652, 72);
+			this->lblLogin->Name = L"lblLogin";
+			this->lblLogin->Size = System::Drawing::Size(216, 40);
+			this->lblLogin->TabIndex = 2;
+			this->lblLogin->Text = L"+логин";
+			this->toolTip1->SetToolTip(this->lblLogin, L"Нельзя изменить!");
+			// 
+			// txtOrgName
+			// 
+			this->txtOrgName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->txtOrgName->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtOrgName->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->txtOrgName->ForeColor = System::Drawing::Color::White;
+			this->txtOrgName->Location = System::Drawing::Point(653, 172);
+			this->txtOrgName->Multiline = true;
+			this->txtOrgName->Name = L"txtOrgName";
+			this->txtOrgName->Size = System::Drawing::Size(216, 46);
+			this->txtOrgName->TabIndex = 3;
+			this->txtOrgName->Text = L"+имя";
+			this->toolTip1->SetToolTip(this->txtOrgName, L"Можно изменить");
+			// 
+			// txtContacts
+			// 
+			this->txtContacts->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->txtContacts->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->txtContacts->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->txtContacts->ForeColor = System::Drawing::Color::White;
+			this->txtContacts->Location = System::Drawing::Point(875, 172);
+			this->txtContacts->Multiline = true;
+			this->txtContacts->Name = L"txtContacts";
+			this->txtContacts->Size = System::Drawing::Size(286, 46);
+			this->txtContacts->TabIndex = 4;
+			this->txtContacts->Text = L"+контакт";
+			this->toolTip1->SetToolTip(this->txtContacts, L"Можно изменить\r\n");
+			// 
+			// lblRating
+			// 
+			this->lblRating->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->lblRating->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->lblRating->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->lblRating->ForeColor = System::Drawing::Color::White;
+			this->lblRating->Location = System::Drawing::Point(70, 72);
+			this->lblRating->Name = L"lblRating";
+			this->lblRating->Size = System::Drawing::Size(567, 42);
+			this->lblRating->TabIndex = 8;
+			this->lblRating->Text = L"+рейтинг";
+			this->lblRating->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->toolTip1->SetToolTip(this->lblRating, L"Нельзя изменить!");
+			// 
+			// lblEventsCount
+			// 
+			this->lblEventsCount->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->lblEventsCount->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->lblEventsCount->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->lblEventsCount->ForeColor = System::Drawing::Color::White;
+			this->lblEventsCount->Location = System::Drawing::Point(70, 172);
+			this->lblEventsCount->Name = L"lblEventsCount";
+			this->lblEventsCount->Size = System::Drawing::Size(567, 46);
+			this->lblEventsCount->TabIndex = 9;
+			this->lblEventsCount->Text = L"Кол-во мероприятий";
+			this->lblEventsCount->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->toolTip1->SetToolTip(this->lblEventsCount, L"Нельзя изменить!");
+			// 
+			// label3
+			// 
+			this->label3->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->label3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label3->ForeColor = System::Drawing::Color::White;
+			this->label3->Location = System::Drawing::Point(874, 34);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(287, 38);
+			this->label3->TabIndex = 10;
+			this->label3->Text = L"ID";
+			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->toolTip1->SetToolTip(this->label3, L"Нельзя изменить!");
+			// 
+			// label4
+			// 
+			this->label4->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->label4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label4->ForeColor = System::Drawing::Color::White;
+			this->label4->Location = System::Drawing::Point(652, 34);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(216, 38);
+			this->label4->TabIndex = 11;
+			this->label4->Text = L"ЛОГИН";
+			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->toolTip1->SetToolTip(this->label4, L"Нельзя изменить!");
+			// 
+			// label5
+			// 
+			this->label5->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->label5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label5->ForeColor = System::Drawing::Color::White;
+			this->label5->Location = System::Drawing::Point(653, 134);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(216, 38);
+			this->label5->TabIndex = 12;
+			this->label5->Text = L"ИМЯ";
+			this->label5->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->toolTip1->SetToolTip(this->label5, L"Можно изменить");
+			// 
+			// label6
+			// 
+			this->label6->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->label6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label6->ForeColor = System::Drawing::Color::White;
+			this->label6->Location = System::Drawing::Point(875, 134);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(286, 38);
+			this->label6->TabIndex = 13;
+			this->label6->Text = L"КОНТАКТЫ";
+			this->label6->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->toolTip1->SetToolTip(this->label6, L"Можно изменить");
+			// 
+			// label7
+			// 
+			this->label7->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->label7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label7->ForeColor = System::Drawing::Color::White;
+			this->label7->Location = System::Drawing::Point(70, 34);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(567, 38);
+			this->label7->TabIndex = 14;
+			this->label7->Text = L"РЕЙТИНГ ДОВЕРИЯ";
+			this->label7->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->toolTip1->SetToolTip(this->label7, L"Нельзя изменить!");
+			// 
+			// label8
+			// 
+			this->label8->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->label8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->label8->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label8->ForeColor = System::Drawing::Color::White;
+			this->label8->Location = System::Drawing::Point(70, 134);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(567, 38);
+			this->label8->TabIndex = 15;
+			this->label8->Text = L"КОЛИЧЕСТВО МЕРОПРИЯТИЙ";
+			this->label8->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->toolTip1->SetToolTip(this->label8, L"Нельзя изменить!");
+			// 
+			// tabPage4
+			// 
+			this->tabPage4->Controls->Add(this->label8);
+			this->tabPage4->Controls->Add(this->label7);
+			this->tabPage4->Controls->Add(this->label6);
+			this->tabPage4->Controls->Add(this->label5);
+			this->tabPage4->Controls->Add(this->label4);
+			this->tabPage4->Controls->Add(this->label3);
+			this->tabPage4->Controls->Add(this->lblEventsCount);
+			this->tabPage4->Controls->Add(this->lblRating);
+			this->tabPage4->Controls->Add(this->btnSave);
+			this->tabPage4->Controls->Add(this->txtContacts);
+			this->tabPage4->Controls->Add(this->txtOrgName);
+			this->tabPage4->Controls->Add(this->lblLogin);
+			this->tabPage4->Controls->Add(this->lblID);
+			this->tabPage4->Controls->Add(this->pictureBox5);
+			this->tabPage4->Location = System::Drawing::Point(4, 25);
+			this->tabPage4->Name = L"tabPage4";
+			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage4->Size = System::Drawing::Size(1301, 556);
+			this->tabPage4->TabIndex = 3;
+			this->tabPage4->Text = L"Мой профиль";
+			this->tabPage4->UseVisualStyleBackColor = true;
+			// 
+			// btnSave
+			// 
+			this->btnSave->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(50)));
+			this->btnSave->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnSave->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->btnSave->ForeColor = System::Drawing::Color::White;
+			this->btnSave->Location = System::Drawing::Point(443, 452);
+			this->btnSave->Name = L"btnSave";
+			this->btnSave->Size = System::Drawing::Size(404, 94);
+			this->btnSave->TabIndex = 7;
+			this->btnSave->Text = L"СОХРАНИТЬ ИЗМЕНЕНИЯ";
+			this->btnSave->UseVisualStyleBackColor = false;
+			this->btnSave->Click += gcnew System::EventHandler(this, &OrganizerForm::btnSave_Click);
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->pictureBox5->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
+			this->pictureBox5->Location = System::Drawing::Point(3, 3);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(1295, 550);
+			this->pictureBox5->TabIndex = 0;
+			this->pictureBox5->TabStop = false;
+			// 
+			// tabPage3
+			// 
+			this->tabPage3->Controls->Add(this->pictureBox4);
+			this->tabPage3->Location = System::Drawing::Point(4, 25);
+			this->tabPage3->Name = L"tabPage3";
+			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage3->Size = System::Drawing::Size(1301, 556);
+			this->tabPage3->TabIndex = 2;
+			this->tabPage3->Text = L"Баны";
+			this->tabPage3->UseVisualStyleBackColor = true;
+			// 
+			// pictureBox4
+			// 
+			this->pictureBox4->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
+			this->pictureBox4->Location = System::Drawing::Point(3, 3);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(1295, 550);
+			this->pictureBox4->TabIndex = 0;
+			this->pictureBox4->TabStop = false;
+			// 
+			// tabPage2
+			// 
+			this->tabPage2->Controls->Add(this->pictureBox3);
+			this->tabPage2->Location = System::Drawing::Point(4, 25);
+			this->tabPage2->Name = L"tabPage2";
+			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
+			this->tabPage2->Size = System::Drawing::Size(1301, 556);
+			this->tabPage2->TabIndex = 1;
+			this->tabPage2->Text = L"Заявки";
+			this->tabPage2->UseVisualStyleBackColor = true;
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
+			this->pictureBox3->Location = System::Drawing::Point(3, 3);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(1295, 550);
+			this->pictureBox3->TabIndex = 0;
+			this->pictureBox3->TabStop = false;
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->button1);
+			this->tabPage1->Controls->Add(this->btnBracket);
 			this->tabPage1->Controls->Add(this->label2);
 			this->tabPage1->Controls->Add(this->txtSearch);
 			this->tabPage1->Controls->Add(this->label1);
@@ -221,6 +535,37 @@ namespace kurs {
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"Турниры";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.8F, System::Drawing::FontStyle::Bold));
+			this->button1->ForeColor = System::Drawing::Color::White;
+			this->button1->Location = System::Drawing::Point(922, 463);
+			this->button1->MaximumSize = System::Drawing::Size(235, 60);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(235, 60);
+			this->button1->TabIndex = 12;
+			this->button1->Text = L"ОТКРЫТЬ";
+			this->button1->UseVisualStyleBackColor = false;
+			// 
+			// btnBracket
+			// 
+			this->btnBracket->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
+				static_cast<System::Int32>(static_cast<System::Byte>(70)));
+			this->btnBracket->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnBracket->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.8F, System::Drawing::FontStyle::Bold));
+			this->btnBracket->ForeColor = System::Drawing::Color::White;
+			this->btnBracket->Location = System::Drawing::Point(922, 331);
+			this->btnBracket->MaximumSize = System::Drawing::Size(235, 60);
+			this->btnBracket->Name = L"btnBracket";
+			this->btnBracket->Size = System::Drawing::Size(235, 60);
+			this->btnBracket->TabIndex = 11;
+			this->btnBracket->Text = L"ТУРНИРНАЯ СЕТКА";
+			this->btnBracket->UseVisualStyleBackColor = false;
+			this->btnBracket->Click += gcnew System::EventHandler(this, &OrganizerForm::btnBracket_Click);
 			// 
 			// label2
 			// 
@@ -266,7 +611,7 @@ namespace kurs {
 			this->btnSendToReview->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->btnSendToReview->Font = (gcnew System::Drawing::Font(L"Segoe UI", 10.8F, System::Drawing::FontStyle::Bold));
 			this->btnSendToReview->ForeColor = System::Drawing::Color::White;
-			this->btnSendToReview->Location = System::Drawing::Point(922, 331);
+			this->btnSendToReview->Location = System::Drawing::Point(922, 397);
 			this->btnSendToReview->MaximumSize = System::Drawing::Size(235, 60);
 			this->btnSendToReview->Name = L"btnSendToReview";
 			this->btnSendToReview->Size = System::Drawing::Size(235, 60);
@@ -343,10 +688,7 @@ namespace kurs {
 			// 
 			this->cmbFilter->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 13.8F, System::Drawing::FontStyle::Bold));
 			this->cmbFilter->FormattingEnabled = true;
-			this->cmbFilter->Items->AddRange(gcnew cli::array< System::Object^  >(7) {
-				L"Все турниры", L"Черновик", L"На проверке", L"В ожидании",
-					L"Активен", L"Завершён", L"Отменён"
-			});
+			this->cmbFilter->Items->AddRange(gcnew cli::array< System::Object^  >(4) { L"Все турниры", L"Черновик", L"На проверке", L"Активен" });
 			this->cmbFilter->Location = System::Drawing::Point(797, 52);
 			this->cmbFilter->Name = L"cmbFilter";
 			this->cmbFilter->Size = System::Drawing::Size(235, 39);
@@ -367,7 +709,7 @@ namespace kurs {
 			this->dgvTournaments->RowHeadersWidth = 51;
 			this->dgvTournaments->RowTemplate->Height = 24;
 			this->dgvTournaments->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dgvTournaments->Size = System::Drawing::Size(760, 540);
+			this->dgvTournaments->Size = System::Drawing::Size(783, 540);
 			this->dgvTournaments->TabIndex = 1;
 			// 
 			// Column1
@@ -436,311 +778,18 @@ namespace kurs {
 			this->pictureBox2->TabIndex = 0;
 			this->pictureBox2->TabStop = false;
 			// 
-			// tabPage5
+			// tabControl1
 			// 
-			this->tabPage5->Controls->Add(this->pictureBox6);
-			this->tabPage5->Location = System::Drawing::Point(4, 25);
-			this->tabPage5->Name = L"tabPage5";
-			this->tabPage5->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage5->Size = System::Drawing::Size(1301, 556);
-			this->tabPage5->TabIndex = 4;
-			this->tabPage5->Text = L"Матчи";
-			this->tabPage5->UseVisualStyleBackColor = true;
-			// 
-			// pictureBox6
-			// 
-			this->pictureBox6->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
-			this->pictureBox6->Location = System::Drawing::Point(3, 3);
-			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(1295, 550);
-			this->pictureBox6->TabIndex = 0;
-			this->pictureBox6->TabStop = false;
-			// 
-			// tabPage2
-			// 
-			this->tabPage2->Controls->Add(this->pictureBox3);
-			this->tabPage2->Location = System::Drawing::Point(4, 25);
-			this->tabPage2->Name = L"tabPage2";
-			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(1301, 556);
-			this->tabPage2->TabIndex = 1;
-			this->tabPage2->Text = L"Заявки";
-			this->tabPage2->UseVisualStyleBackColor = true;
-			// 
-			// pictureBox3
-			// 
-			this->pictureBox3->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			this->pictureBox3->Location = System::Drawing::Point(3, 3);
-			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(1295, 550);
-			this->pictureBox3->TabIndex = 0;
-			this->pictureBox3->TabStop = false;
-			// 
-			// tabPage3
-			// 
-			this->tabPage3->Controls->Add(this->pictureBox4);
-			this->tabPage3->Location = System::Drawing::Point(4, 25);
-			this->tabPage3->Name = L"tabPage3";
-			this->tabPage3->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage3->Size = System::Drawing::Size(1301, 556);
-			this->tabPage3->TabIndex = 2;
-			this->tabPage3->Text = L"Жалобы";
-			this->tabPage3->UseVisualStyleBackColor = true;
-			// 
-			// pictureBox4
-			// 
-			this->pictureBox4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
-			this->pictureBox4->Location = System::Drawing::Point(3, 3);
-			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(1295, 550);
-			this->pictureBox4->TabIndex = 0;
-			this->pictureBox4->TabStop = false;
-			// 
-			// tabPage4
-			// 
-			this->tabPage4->Controls->Add(this->label8);
-			this->tabPage4->Controls->Add(this->label7);
-			this->tabPage4->Controls->Add(this->label6);
-			this->tabPage4->Controls->Add(this->label5);
-			this->tabPage4->Controls->Add(this->label4);
-			this->tabPage4->Controls->Add(this->label3);
-			this->tabPage4->Controls->Add(this->lblEventsCount);
-			this->tabPage4->Controls->Add(this->lblRating);
-			this->tabPage4->Controls->Add(this->btnSave);
-			this->tabPage4->Controls->Add(this->txtContacts);
-			this->tabPage4->Controls->Add(this->txtOrgName);
-			this->tabPage4->Controls->Add(this->lblLogin);
-			this->tabPage4->Controls->Add(this->lblID);
-			this->tabPage4->Controls->Add(this->pictureBox5);
-			this->tabPage4->Location = System::Drawing::Point(4, 25);
-			this->tabPage4->Name = L"tabPage4";
-			this->tabPage4->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage4->Size = System::Drawing::Size(1301, 556);
-			this->tabPage4->TabIndex = 3;
-			this->tabPage4->Text = L"Профиль";
-			this->tabPage4->UseVisualStyleBackColor = true;
-			// 
-			// label8
-			// 
-			this->label8->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->label8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->label8->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label8->ForeColor = System::Drawing::Color::White;
-			this->label8->Location = System::Drawing::Point(70, 134);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(567, 38);
-			this->label8->TabIndex = 15;
-			this->label8->Text = L"КОЛИЧЕСТВО МЕРОПРИЯТИЙ";
-			this->label8->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->toolTip1->SetToolTip(this->label8, L"Нельзя изменить!");
-			// 
-			// label7
-			// 
-			this->label7->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->label7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label7->ForeColor = System::Drawing::Color::White;
-			this->label7->Location = System::Drawing::Point(70, 34);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(567, 38);
-			this->label7->TabIndex = 14;
-			this->label7->Text = L"РЕЙТИНГ ДОВЕРИЯ";
-			this->label7->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->toolTip1->SetToolTip(this->label7, L"Нельзя изменить!");
-			// 
-			// label6
-			// 
-			this->label6->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->label6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(875, 134);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(286, 38);
-			this->label6->TabIndex = 13;
-			this->label6->Text = L"КОНТАКТЫ";
-			this->label6->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->toolTip1->SetToolTip(this->label6, L"Можно изменить");
-			// 
-			// label5
-			// 
-			this->label5->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->label5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label5->ForeColor = System::Drawing::Color::White;
-			this->label5->Location = System::Drawing::Point(653, 134);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(216, 38);
-			this->label5->TabIndex = 12;
-			this->label5->Text = L"ИМЯ";
-			this->label5->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->toolTip1->SetToolTip(this->label5, L"Можно изменить");
-			// 
-			// label4
-			// 
-			this->label4->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->label4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(652, 34);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(216, 38);
-			this->label4->TabIndex = 11;
-			this->label4->Text = L"ЛОГИН";
-			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->toolTip1->SetToolTip(this->label4, L"Нельзя изменить!");
-			// 
-			// label3
-			// 
-			this->label3->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->label3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(874, 34);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(287, 38);
-			this->label3->TabIndex = 10;
-			this->label3->Text = L"ID";
-			this->label3->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->toolTip1->SetToolTip(this->label3, L"Нельзя изменить!");
-			// 
-			// lblEventsCount
-			// 
-			this->lblEventsCount->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->lblEventsCount->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->lblEventsCount->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->lblEventsCount->ForeColor = System::Drawing::Color::White;
-			this->lblEventsCount->Location = System::Drawing::Point(70, 172);
-			this->lblEventsCount->Name = L"lblEventsCount";
-			this->lblEventsCount->Size = System::Drawing::Size(567, 46);
-			this->lblEventsCount->TabIndex = 9;
-			this->lblEventsCount->Text = L"Кол-во мероприятий";
-			this->lblEventsCount->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->toolTip1->SetToolTip(this->lblEventsCount, L"Нельзя изменить!");
-			// 
-			// lblRating
-			// 
-			this->lblRating->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->lblRating->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->lblRating->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->lblRating->ForeColor = System::Drawing::Color::White;
-			this->lblRating->Location = System::Drawing::Point(70, 72);
-			this->lblRating->Name = L"lblRating";
-			this->lblRating->Size = System::Drawing::Size(567, 42);
-			this->lblRating->TabIndex = 8;
-			this->lblRating->Text = L"+рейтинг";
-			this->lblRating->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			this->toolTip1->SetToolTip(this->lblRating, L"Нельзя изменить!");
-			// 
-			// btnSave
-			// 
-			this->btnSave->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->btnSave->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->btnSave->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->btnSave->ForeColor = System::Drawing::Color::White;
-			this->btnSave->Location = System::Drawing::Point(443, 452);
-			this->btnSave->Name = L"btnSave";
-			this->btnSave->Size = System::Drawing::Size(404, 94);
-			this->btnSave->TabIndex = 7;
-			this->btnSave->Text = L"СОХРАНИТЬ ИЗМЕНЕНИЯ";
-			this->btnSave->UseVisualStyleBackColor = false;
-			this->btnSave->Click += gcnew System::EventHandler(this, &OrganizerForm::btnSave_Click);
-			// 
-			// txtContacts
-			// 
-			this->txtContacts->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->txtContacts->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->txtContacts->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->txtContacts->ForeColor = System::Drawing::Color::White;
-			this->txtContacts->Location = System::Drawing::Point(875, 172);
-			this->txtContacts->Multiline = true;
-			this->txtContacts->Name = L"txtContacts";
-			this->txtContacts->Size = System::Drawing::Size(286, 46);
-			this->txtContacts->TabIndex = 4;
-			this->txtContacts->Text = L"+контакт";
-			this->toolTip1->SetToolTip(this->txtContacts, L"Можно изменить\r\n");
-			// 
-			// txtOrgName
-			// 
-			this->txtOrgName->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->txtOrgName->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->txtOrgName->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->txtOrgName->ForeColor = System::Drawing::Color::White;
-			this->txtOrgName->Location = System::Drawing::Point(653, 172);
-			this->txtOrgName->Multiline = true;
-			this->txtOrgName->Name = L"txtOrgName";
-			this->txtOrgName->Size = System::Drawing::Size(216, 46);
-			this->txtOrgName->TabIndex = 3;
-			this->txtOrgName->Text = L"+имя";
-			this->toolTip1->SetToolTip(this->txtOrgName, L"Можно изменить");
-			// 
-			// lblLogin
-			// 
-			this->lblLogin->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->lblLogin->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->lblLogin->Cursor = System::Windows::Forms::Cursors::Arrow;
-			this->lblLogin->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->lblLogin->ForeColor = System::Drawing::Color::White;
-			this->lblLogin->Location = System::Drawing::Point(652, 72);
-			this->lblLogin->Name = L"lblLogin";
-			this->lblLogin->Size = System::Drawing::Size(216, 40);
-			this->lblLogin->TabIndex = 2;
-			this->lblLogin->Text = L"+логин";
-			this->toolTip1->SetToolTip(this->lblLogin, L"Нельзя изменить!");
-			// 
-			// lblID
-			// 
-			this->lblID->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->lblID->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(26)), static_cast<System::Int32>(static_cast<System::Byte>(26)),
-				static_cast<System::Int32>(static_cast<System::Byte>(50)));
-			this->lblID->Font = (gcnew System::Drawing::Font(L"Segoe UI Semibold", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->lblID->ForeColor = System::Drawing::Color::White;
-			this->lblID->Location = System::Drawing::Point(874, 72);
-			this->lblID->Name = L"lblID";
-			this->lblID->Size = System::Drawing::Size(287, 40);
-			this->lblID->TabIndex = 1;
-			this->lblID->Text = L"+айди";
-			this->toolTip1->SetToolTip(this->lblID, L"Нельзя изменить!");
-			// 
-			// pictureBox5
-			// 
-			this->pictureBox5->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			this->pictureBox5->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
-			this->pictureBox5->Location = System::Drawing::Point(3, 3);
-			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(1295, 550);
-			this->pictureBox5->TabIndex = 0;
-			this->pictureBox5->TabStop = false;
-			this->pictureBox5->Click += gcnew System::EventHandler(this, &OrganizerForm::pictureBox5_Click);
+			this->tabControl1->Controls->Add(this->tabPage1);
+			this->tabControl1->Controls->Add(this->tabPage2);
+			this->tabControl1->Controls->Add(this->tabPage3);
+			this->tabControl1->Controls->Add(this->tabPage4);
+			this->tabControl1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tabControl1->Location = System::Drawing::Point(0, 0);
+			this->tabControl1->Name = L"tabControl1";
+			this->tabControl1->SelectedIndex = 0;
+			this->tabControl1->Size = System::Drawing::Size(1309, 585);
+			this->tabControl1->TabIndex = 1;
 			// 
 			// OrganizerForm
 			// 
@@ -756,20 +805,18 @@ namespace kurs {
 			this->Text = L"Панель Организатора";
 			this->Load += gcnew System::EventHandler(this, &OrganizerForm::OrganizerForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			this->tabControl1->ResumeLayout(false);
+			this->tabPage4->ResumeLayout(false);
+			this->tabPage4->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			this->tabPage3->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			this->tabPage2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTournaments))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
-			this->tabPage5->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
-			this->tabPage2->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
-			this->tabPage3->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
-			this->tabPage4->ResumeLayout(false);
-			this->tabPage4->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			this->tabControl1->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -830,6 +877,7 @@ namespace kurs {
 		lblRating->Text = o.trustRating.ToString("F1") + " / 10.0";
 		lblEventsCount->Text = o.eventsCount.ToString();
 	}
+
 	private: System::Void btnSearch_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ searchText = txtSearch->Text->Trim();
 		String^ filter = cmbFilter->SelectedItem != nullptr
@@ -880,6 +928,7 @@ namespace kurs {
 			MessageBox::Show("Ничего не найдено!", "Поиск",
 				MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
+
 	private: System::Void btnCreate_Click(System::Object^ sender, System::EventArgs^ e) {
 		// Генерируем новый ID
 		int newId = 1;
@@ -1044,7 +1093,8 @@ namespace kurs {
 			MessageBoxButtons::OK, MessageBoxIcon::Information);
 	}
 
-	private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void btnBracket_Click(System::Object^ sender, System::EventArgs^ e) {
+		
 	}
-	};
+};
 }

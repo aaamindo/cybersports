@@ -182,6 +182,7 @@ namespace kurs {
 			this->PerformLayout();
 
 		}
+
 	private: System::Void LoginForm_Load(System::Object^ sender, System::EventArgs^ e)
 	{
 		accList = new AccountList;
@@ -274,7 +275,7 @@ namespace kurs {
 				MessageBoxIcon::Information);
 
 			this->Hide();
-			PlayerForm^ form = gcnew PlayerForm;
+			PlayerForm^ form = gcnew PlayerForm(found->data.id);
 			form->ShowDialog();
 			this->Show();
 			this->Close();

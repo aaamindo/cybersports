@@ -165,3 +165,26 @@ void AddOrganizer(OrganizerList* list, Organizer o);
 void RemoveOrganizer(OrganizerList* list, int id);
 OrganizerNode* FindOrganizerByAccountId(OrganizerList* list, int accountId);
 void ClearOrganizerList(OrganizerList* list);
+
+// =====================================================
+// Список заявок
+// =====================================================
+struct TourApplicationNode
+{
+    TourApplication      data;
+    TourApplicationNode* prev;
+    TourApplicationNode* next;
+};
+
+struct TourApplicationList
+{
+    TourApplicationNode* head;
+    TourApplicationNode* tail;
+};
+
+void InitApplicationList(TourApplicationList* list);
+void AddApplication(TourApplicationList* list, TourApplication a);
+void RemoveApplication(TourApplicationList* list, int id);
+TourApplicationNode* FindApplicationByPlayerAndTournament(TourApplicationList* list, int playerId, int tournamentId);
+void ClearApplicationList(TourApplicationList* list);
+int CountApplications(TourApplicationList* list);

@@ -560,3 +560,82 @@ void ClearOrganizerList(OrganizerList* list)
 	list->head = nullptr;
 	list->tail = nullptr;
 }
+
+// =====================================================
+// Список заявок
+// =====================================================
+
+void InitApplicationList(TourApplicationList* list)
+{
+	list->head = nullptr;
+	list->tail = nullptr;
+}
+
+void AddApplication(TourApplicationList* list, TourApplication a)
+{
+	TourApplicationNode* node = new TourApplicationNode;
+	node->data = a;
+	node->prev = nullptr;
+	node->next = nullptr;
+
+	if (list->head == nullptr) {
+		list->head = node;
+		list->tail = node;
+	}
+	else {
+		node->prev = list->tail;
+		list->tail->next = node;
+		list->tail = node;
+	}
+}
+
+void RemoveApplication(TourApplicationList* list, int id)
+{
+	TourApplicationNode* cur = list->head;
+	while (cur != nullptr) {
+		if (cur->data.id == id) {
+			if (cur->prev) cur->prev->next = cur->next;
+			else           list->head = cur->next;
+			if (cur->next) cur->next->prev = cur->prev;
+			else           list->tail = cur->prev;
+			delete cur;
+			return;
+		}
+		cur = cur->next;
+	}
+}
+
+TourApplicationNode* FindApplicationByPlayerAndTournament(TourApplicationList* list, int playerId, int tournamentId)
+{
+	TourApplicationNode* cur = list->head;
+	while (cur != nullptr) {
+		if (cur->data.playerId == playerId &&
+			cur->data.tournamentId == tournamentId)
+			return cur;
+		cur = cur->next;
+	}
+	return nullptr;
+}
+
+void ClearApplicationList(TourApplicationList* list)
+{
+	TourApplicationNode* cur = list->head;
+	while (cur != nullptr) {
+		TourApplicationNode* next = cur->next;
+		delete cur;
+		cur = next;
+	}
+	list->head = nullptr;
+	list->tail = nullptr;
+}
+
+int CountApplications(TourApplicationList* list)
+{
+	int count = 0;
+	TourApplicationNode* cur = list->head;
+	while (cur != nullptr) {
+		count++;
+		cur = cur->next;
+	}
+	return count;
+}
